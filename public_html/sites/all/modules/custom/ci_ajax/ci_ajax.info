@@ -1,0 +1,6 @@
+name = Last entities
+description = Simple block shows the lastest types of entities.
+
+core = 7.x
+
+package = Codeitaly

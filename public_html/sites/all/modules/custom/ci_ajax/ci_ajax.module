@@ -1,0 +1,68 @@
+<?php
+/**
+ * Implements hook_menu().
+ */
+function ci_ajax_menu(){
+  $items = array();
+
+  $items['ci/api/lastestentities'] = array(
+    // Funzione dove andremo a "costruire" le informazioni/contenuti
+    // della risposta
+    'page callback' => 'ci_ajax_entities',
+    'type' => MENU_CALLBACK,
+    'access callback' => TRUE,
+    // Funzione che avrà il compito di gestire la risposta che verrà inviata
+    // al browser.
+    'delivery callback' => 'ci_ajax_delivery_callback',
+  );
+
+  return $items;
+}
+
+
+/**
+ *  Page callback for "ci/api/lastentities"
+ */
+function ci_ajax_entities() {
+
+  /*
+   * Attraverso EntityFieldQuery recuperiamo tutti gli id delle entità che
+   * rispettano i nostri requisiti.
+   * Es:Ultimi 5 articoli, ordinati per data di creazione in ordine decrescente.
+   */
+  $q = new EntityFieldQuery();
+
+  $q->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'article')
+    ->propertyCondition('status', NODE_PUBLISHED)
+    ->range(0, 5)
+    ->propertyOrderBy('created', 'DESC')
+    ->addMetaData('account', user_load(1)); // Run the query as user 1.
+
+  $results = $q->execute();
+
+  if (!empty($results)) {
+    $entities = array();
+
+    /*
+     * Le chiavi presenti in $results['node'] corrispondono agli ID delle entità
+     * nodo.
+     * A cause di un riordino "automatico" in fase di output json, occorre
+     * ordinare l'output preventivamente.
+     */
+    foreach (entity_load('node', array_keys($results['node'])) as $row) {
+      $entities[] = $row;
+    }
+
+    return $entities;
+  }
+
+  return array(0 => 'Nessun risultato');
+}
+
+/**
+ *  Delivery callback for "ci/api/lastentities"
+ */
+function ci_ajax_delivery_callback($page_callback) {
+  print drupal_json_output($page_callback);
+}
