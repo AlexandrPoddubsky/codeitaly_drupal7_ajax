@@ -27,11 +27,11 @@ L'iterazione 1 ha come obiettivo quello di fornire un semplice end-point da cui 
 In questa fase non mi sono focalizzato rispettare e applicare tutte le best practices suggerite da mr.X, in quanto le persone interessate ad un approccio semplicistico sono sicuramente alle prime armi.
 
 Elenco delle attività:
-1.	**sites/all/modules/custom/ci_ajax/ci_ajax.info:** Creazione di un modulo custom. vedi [.info]
-2.	**sites/all/modules/custom/ci_ajax/ci_ajax.module:** Implementazione dell'hook_menu() per la creazione di un end-point.
-3.	**sites/all/modules/custom/ci_ajax/ci_ajax.module:** Page callback - recupero e manipolazione delle informazioni relative agli ultimi articoli creati.
-4.	**sites/all/modules/custom/ci_ajax/ci_ajax.module:** Delivery callback - output delle informazioni in formato json.
-5.	**[localhost]/admin/structure/block/add:** Creazione di un nuovo blocco contenente lo snippet riportato di seguito e reperibile a questo indirizzo [Gist]. Da pubblicare preferibilmente in una delle barre laterali.
+1.	**sites/all/modules/custom/ci_ajax/ci_ajax.info:** Creazione di un modulo custom. vedi [.info]  
+2.	**sites/all/modules/custom/ci_ajax/ci_ajax.module:** Implementazione dell'hook_menu() per la creazione di un end-point.  
+3.	**sites/all/modules/custom/ci_ajax/ci_ajax.module:** Page callback - recupero e manipolazione delle informazioni relative agli ultimi articoli creati.  
+4.	**sites/all/modules/custom/ci_ajax/ci_ajax.module:** Delivery callback - output delle informazioni in formato json.  
+5.	**[localhost]/admin/structure/block/add:** Creazione di un nuovo blocco contenente lo snippet riportato di seguito e reperibile a questo indirizzo [Gist]. Da pubblicare preferibilmente in una delle barre laterali.  
 
 
 ```javascript
