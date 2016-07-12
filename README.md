@@ -1,5 +1,5 @@
-# CodeItaly Drupal 7, Ajax i1
-### Tutorial utilizzo di chiamate Ajax con Drupal 7, iterazione 1 (i1)
+# CodeItaly Drupal 7, Ajax i2
+### Tutorial sull'utilizzo di chiamate Ajax su piattaforma Drupal 7, iterazione 2 (i2)
 
 # Installazione
 in costruzione
@@ -27,7 +27,7 @@ L'iterazione 1 ha come obiettivo quello di fornire un semplice end-point da cui 
 In questa fase non mi sono focalizzato rispettare e applicare tutte le best practices suggerite da mr.X, in quanto le persone interessate ad un approccio semplicistico sono sicuramente alle prime armi.
 
 Elenco delle attività:  
-  
+
 1.  **sites/all/modules/custom/ci_ajax/ci_ajax.info:** Creazione di un modulo custom. vedi [.info]  
 2.	**sites/all/modules/custom/ci_ajax/ci_ajax.module:** Implementazione dell'hook_menu() per la creazione di un end-point.  
 3.	**sites/all/modules/custom/ci_ajax/ci_ajax.module:** Page callback - recupero e manipolazione delle informazioni relative agli ultimi articoli creati.  
@@ -52,6 +52,19 @@ jQuery.getJSON("/ci/api/lastestentities", function( data ) {
 </script>
 ```
 
+# Iterazione 2
+
+Con l'iterazione 2 vedremo come assegnare al nostro modulo il compito di creare un blocco, gestibile dalla sezione admin/structure/block, contentente il nostro codice HTML & Javascript.  
+Gli hook che andremo ad utilizzare sono:
+1. [hook_block_info()]: Con cui comunicheremo a Drupal l'esistenza del nostro blocco.
+2. [hook_theme()]: Con cui renderemo disponibile a sistema un nuovo "tema", collegato ad un file template. Vedi: *ci_ajax/templates/last-entities-block.tpl.php*
+3. [hook_block_view()]: Con cui forniremo a Drupal il contenuto del nostro blocco.
+
+# Iterazione 3
+
+In corso...
+
+
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
 
@@ -64,3 +77,9 @@ jQuery.getJSON("/ci/api/lastestentities", function( data ) {
   [.info]: <https://www.drupal.org/node/542202>
 
   [Gist]: <https://gist.github.com/nervaccio/7c6d85ed6cd12adfe28715f24bac7fcb>
+
+  [hook_block_info()]: <https://api.drupal.org/api/drupal/modules%21block%21block.api.php/function/hook_block_info/7.x>
+
+  [hook_theme()]: <https://api.drupal.org/api/drupal/modules%21system%21system.api.php/function/hook_theme/7.x>
+
+  [hook_block_view()]: <https://api.drupal.org/api/drupal/modules%21block%21block.api.php/function/hook_block_view/7.x>
