@@ -55,10 +55,10 @@ jQuery.getJSON("/ci/api/lastestentities", function( data ) {
 # Iterazione 2
 
 Con l'iterazione 2 vedremo come assegnare al nostro modulo il compito di creare un blocco, gestibile dalla sezione admin/structure/block, contentente il nostro codice HTML & Javascript.  
-Gli hook che andremo ad utilizzare sono:
-1. [hook_block_info()]: Con cui comunicheremo a Drupal l'esistenza del nostro blocco.  
-2. [hook_theme()]: Con cui renderemo disponibile a sistema un nuovo "tema", collegato ad un file template. Vedi: *ci_ajax/templates/last-entities-block.tpl.php*  
-3. [hook_block_view()]: Con cui forniremo a Drupal il contenuto del nostro blocco.  
+Gli hook che andremo ad utilizzare sono:  
+1.  [hook_block_info()]: Con cui comunicheremo a Drupal l'esistenza del nostro blocco.  
+2.  [hook_theme()]: Con cui renderemo disponibile a sistema un nuovo "tema", collegato ad un file template. Vedi: *ci_ajax/templates/last-entities-block.tpl.php*  
+3.  [hook_block_view()]: Con cui forniremo a Drupal il contenuto del nostro blocco.  
 
 # Iterazione 3
 
