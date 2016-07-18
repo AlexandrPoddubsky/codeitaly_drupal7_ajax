@@ -103,6 +103,15 @@ function ci_ajax_block_info() {
 * Implements hook_block_view().
 */
 function ci_ajax_block_view($delta='') {
+
+  // Note per iterazione 4
+
+  // $my_settings = array(
+  //   'Ciccio' => 'Pasticcio',
+  // );
+  //
+  // drupal_add_js(array('ci_ajax' => $my_settings), 'setting');
+
   $block = array();
 
   switch($delta) {

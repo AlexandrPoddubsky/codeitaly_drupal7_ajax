@@ -1,5 +1,5 @@
-# CodeItaly Drupal 7, Ajax i2
-### Tutorial sull'utilizzo di chiamate Ajax su piattaforma Drupal 7, iterazione 2 (i2)
+# CodeItaly Drupal 7, Ajax i3
+### Tutorial sull'utilizzo di chiamate Ajax su piattaforma Drupal 7, iterazione 3 (i3)
 
 # Installazione
 in costruzione
@@ -63,7 +63,41 @@ Gli hook che andremo ad utilizzare sono:
 
 # Iterazione 3
 
-In corso...
+Con l'iterazione 3 vedremo come scorporare il codice Javascript dal template: last-entities-block.tpl.php, e inserirlo in un file assestante. Così da semplificare la gestione di quest'ultimo. Abbiamo sfruttato "lo spostamento" per racchiudere il codice all'interno di [Drupal Behaviors] così da avere la possibilità di passare informazioni ( variabili ), tra il nostro codice PHP e il codice Javascript. A riguardo trovate un accenno tra le porzioni di codice commentato. Questo passaggio di informazioni verrà approfondito tra la 4 e la quinta interazione.  
+
+file: sites/all/modules/custom/ci_ajax/js/ci_ajax.js
+```javascript
+Drupal.behaviors.ci_ajax = {
+  attach: function (context, settings) {
+  (function($){
+    $.getJSON("/ci/api/lastestentities", function( data ) {
+      var items = [];
+
+      items.push("<ul>");
+
+      $.each( data, function( key, val ) {
+        items.push("<li><a href='"+val.nid+"'>"+ val.title +"</a></li>");
+      });
+
+      items.push("</ul>");
+
+    $("#ultimi-articoli").html(items.join(''));
+    });
+
+    // Note per iterazione 4.
+
+    // var effect = Drupal.settings.ci_ajax.Ciccio;
+    //
+    // console.log(effect);
+  })(jQuery);
+
+  }
+};
+```
+
+# Iterazione 4
+
+In sviluppo...
 
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
@@ -84,3 +118,5 @@ In corso...
   [hook_theme()]: <https://api.drupal.org/api/drupal/modules%21system%21system.api.php/function/hook_theme/7.x>
 
   [hook_block_view()]: <https://api.drupal.org/api/drupal/modules%21block%21block.api.php/function/hook_block_view/7.x>
+
+  [Drupal Behaviors]: <https://www.drupal.org/node/304258>

@@ -1,16 +1,7 @@
 <div id="ultimi-articoli"></div>
-
-<script>
-jQuery.getJSON("/ci/api/lastestentities", function( data ) {
-  var items = [];
-  items.push("<ul>");
-  jQuery.each( data, function( key, val ) {
-
-    items.push("<li><a href='"+val.nid+"'>"+ val.title +"</a></li>");
-
-  });
-    items.push("</ul>");
-
-jQuery("#ultimi-articoli").html(items.join(''));
-});
-</script>
+<?php
+drupal_add_js(drupal_get_path('module', 'ci_ajax') . '/js/ci_ajax.js', array(
+  'type' => 'file',
+  'group' => JS_THEME,
+));
+?>
