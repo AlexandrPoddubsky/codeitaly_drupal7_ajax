@@ -1,7 +1,10 @@
 Drupal.behaviors.ci_ajax = {
   attach: function (context, settings) {
   (function($){
-    $.getJSON("/ci/api/lastestentities", function( data ) {
+    // Recupero tramite drupal behaviors del numero di entities da richiedere/mostrare
+    var num = Drupal.settings.ci_ajax.num_entities;
+
+    $.getJSON("/ci/api/lastestentities/" + num, function( data ) {
       var items = [];
 
       items.push("<ul>");
@@ -15,11 +18,6 @@ Drupal.behaviors.ci_ajax = {
     $("#ultimi-articoli").html(items.join(''));
     });
 
-    // Note per iterazione 4.
-
-    // var effect = Drupal.settings.ci_ajax.Ciccio;
-    //
-    // console.log(effect);
   })(jQuery);
 
   }

@@ -97,7 +97,15 @@ Drupal.behaviors.ci_ajax = {
 
 # Iterazione 4
 
-In sviluppo...
+Con l'interazione 4 abbiamo dato la possibilità all'amministratore e/o site builder di selezionare il numero di entità da visualizzare. Ho optato per un un select box in cui sono previste 3 possibilità (3, 5, 10).  
+La possibilità di scegliere quante entità mostare, agendo dalla configurazione del blocco, è stata realizzata attraverso questi due hooks: [hook_block_configure()] e [hook_block_save()].  
+Mentre attraverso [Drupal Behaviors] possiamo tramettere al nostro script quante entità può richiedere alla nostra API.
+Infine sono state apportate le dovute modifiche al nostro [hook_menu] e alla callback relativa alla nostra API. Sul primo abbiamo implementato la gestione di un placeholder '%', mentre la callback riceve il valore del placeholder restituendo il range di entità corretto.
+
+
+# Iterazione 5  
+
+in lavorazione...
 
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
@@ -120,3 +128,7 @@ In sviluppo...
   [hook_block_view()]: <https://api.drupal.org/api/drupal/modules%21block%21block.api.php/function/hook_block_view/7.x>
 
   [Drupal Behaviors]: <https://www.drupal.org/node/304258>
+
+  [hook_block_configure()]: <https://api.drupal.org/api/drupal/modules%21block%21block.api.php/function/hook_block_configure/7.x>
+
+  [hook_block_save()]: <https://api.drupal.org/api/drupal/modules%21block%21block.api.php/function/hook_block_save/7.x>
